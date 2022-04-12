@@ -23,14 +23,22 @@ These steps need to be carried out on each cluster once, to install the mas-bas 
 kustomize build ${GITOPS_REPO}/mas-bas/base/subscription | \
   kubectl apply -f -
 ```
-### approve plan and install instance
+### 1) approve subscription plan  2) install instance 3) approve plan for services deployed for the BAS instance
 
 ```bash
 kustomize build ${GITOPS_REPO}/mas-bas/base/instances/ | \
   kubectl apply -f -
 
 ```
-### wait XXX hours (< 3 hours)
+### wait for 2 hours for installation
+
+### Create mtls job ; wait 2 minutes for completion
+
+```bash
+kustomize build ${GITOPS_REPO}/mas-bas/base/job/ | \
+  kubectl apply -f -
+
+```
 
 ### Generate API key
 ```bash
