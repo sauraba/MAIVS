@@ -11,7 +11,6 @@ Create your namespace, for example, ibm-sls and create a Docker secret that is n
 
 ```bash
 ER_KEY=<your-er-key>
-eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE1OTMwOTI2MzEsImp0aSI6IjU2Yzg0YzE5YmJkZTQyOGM4OWIzMjMxZTI1MDU1MTIzIn0.iGOgy1zLwO5oWNkDqUxl2_VhMFPyP06OPajLLP1pwdY
 oc apply -f namespace.yaml
 oc -n ibm-sls create secret docker-registry ibm-entitlement \
   --docker-server=cp.icr.io \
