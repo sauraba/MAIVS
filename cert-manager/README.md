@@ -10,7 +10,7 @@
 These steps need to be carried out on each cluster once, to install the cert-manager operator
 
 ```bash
-GITOPS_REPO="${HOME}/Projects/workspace/Containers/platform-gitops"
+GITOPS_REPO="${HOME}"
 kustomize build ${GITOPS_REPO}/cert-manager | \
   kubectl apply -f -
 ```

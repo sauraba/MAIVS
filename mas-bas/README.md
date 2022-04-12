@@ -30,3 +30,11 @@ kustomize build ${GITOPS_REPO}/mas-bas/base/instances/ | \
   kubectl apply -f -
 
 ```
+### wait XXX hours (< 3 hours)
+
+### Generate API key
+```bash
+kustomize build ${GITOPS_REPO}/mas-bas/base/apikey/ | \
+  kubectl apply -f -
+
+```
