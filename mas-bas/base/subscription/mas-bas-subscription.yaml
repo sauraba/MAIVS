@@ -1,0 +1,14 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/behavior-analytics-services-operator-certified.mas-bas: ""
+  name: behavior-analytics-services-operator-certified
+  namespace: mas-bas
+spec:
+  channel: alpha
+  installPlanApproval: Manual
+  name: behavior-analytics-services-operator-certified
+  source: bas-111
+  sourceNamespace: openshift-marketplace
+  startingCSV: behavior-analytics-services-operator.v1.1.1

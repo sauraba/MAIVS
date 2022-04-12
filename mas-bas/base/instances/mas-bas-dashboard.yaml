@@ -1,0 +1,14 @@
+apiVersion: v1
+items:
+- apiVersion: bas.ibm.com/v1
+  kind: Dashboard
+  metadata:
+    name: dashboard
+    namespace: mas-bas
+  spec:
+    enable_test_api: true
+    image_pull_secret: bas-images-pull-secret
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
