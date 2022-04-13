@@ -1,0 +1,13 @@
+apiVersion: core.mas.ibm.com/v1
+kind: Workspace
+metadata:
+  namespace: mas-maivs-core
+  name: ibm-mas-maivs-maivs
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+    mas.ibm.com/instanceId: maivs
+    mas.ibm.com/workspaceId: maivs
+spec:
+  displayName: MAIVS MVI env

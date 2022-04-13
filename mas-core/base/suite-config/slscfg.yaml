@@ -1,0 +1,49 @@
+---
+apiVersion: v1
+kind: Secret
+type: opaque
+metadata:
+  name: sls-registration-key
+  namespace: "mas-maivs-core"
+stringData:
+  registrationKey: "72f7dcff-d98b-5eeb-ad4a-899b2630dcd7"
+---
+apiVersion: config.mas.ibm.com/v1
+kind: SlsCfg
+metadata:
+  name: "maivs-sls-system"
+  namespace: "mas-maivs-core"
+  labels:
+    mas.ibm.com/configScope: system
+    mas.ibm.com/instanceId: "maivs"
+spec:
+  displayName: SLS (maivs)
+  config:
+    url: "https://sls.ibm-sls.ibm-sls.mvi-dal13-b3c-8x32-18312db33a3427c911e9adf447e95207-0000.us-south.containers.appdomain.cloud"
+    credentials:
+      secretName: sls-registration-key
+  certificates:
+    - alias: ca
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIDvDCCAqSgAwIBAgIQaIOGxGWSF2qg5SAheQ5whzANBgkqhkiG9w0BAQsFADB4
+        MQswCQYDVQQGEwJHQjEPMA0GA1UEBxMGTG9uZG9uMQ8wDQYDVQQJEwZMb25kb24x
+        LTArBgNVBAsTJElCTSBTdWl0ZSBMaWNlbnNlIFNlcnZpY2UgKEludGVybmFsKTEY
+        MBYGA1UEAxMPc2xzLnNscy5pYm0uY29tMB4XDTIyMDQwNTE4MTY0OVoXDTQyMDMz
+        MTE4MTY0OVoweDELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEPMA0GA1UE
+        CRMGTG9uZG9uMS0wKwYDVQQLEyRJQk0gU3VpdGUgTGljZW5zZSBTZXJ2aWNlIChJ
+        bnRlcm5hbCkxGDAWBgNVBAMTD3Nscy5zbHMuaWJtLmNvbTCCASIwDQYJKoZIhvcN
+        AQEBBQADggEPADCCAQoCggEBALaU5+vQULhmzjLzNjuREnsI9jZ1kfNO9A0xW39a
+        hJwoXx5BQnZKc0osBsc5x6IHeK98roZESbE3Wj68TddBP3TKMczt2aiVIYBJ82pY
+        8wwP4Y2ZtzN1UsV41t0FYoseBt6fjJubzPU+eAyUk/qpkFb8b0Cu1H74d1Zx2Vsw
+        T8N6598ULO6tqMMUAjKv03A3k/z3I0PGbSbHcxd4fwYcG5VSMUDbyfh9Fv8Hkg0q
+        UJcXAQU+cOjglz3Yml5mIotxhiMl+m3cbtOrHkTpDNzNKHMzQX4GkHbTIGsOnjsb
+        GMoaRXLu2fWNcJ6rRQSPmRsA2mvT9DU9yaUyB1yYoRlbZ/sCAwEAAaNCMEAwDgYD
+        VR0PAQH/BAQDAgIEMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFGmA6Z8ik7ma
+        IA7kPMJhcyVeaHKxMA0GCSqGSIb3DQEBCwUAA4IBAQBuhoOjfqd8pRzImmEt01P7
+        Jnn/biIeYDDGkxsQ/R+u4u0vabmbgFnRIJRytpqpdwxHuzD8riSpGEP3wh+n6D8l
+        RAgwQPawAQat6M6MjmQC4zuGTqwy3BqAyFVwzHKidJBDssctWYxP+8HRJnzSU1JF
+        1zeBQI67+MpyelMkLSvx3hvCZoCYmSuFe5RIFeLHoyF2x1Rz+o1KS3/vdWBme7PR
+        DnNFF3GjUW2I9UWqupcMbuuHgri91SQhiLjIipFcfCHVx406Qv3U/jTR9z7yB5pg
+        caPiq/GLdJEZKams5Dj1QI/PvfG7zMucoD2jaKOjsVBNO7CbqznNHc0FIXpoVA7s
+        -----END CERTIFICATE-----

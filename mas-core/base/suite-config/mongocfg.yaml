@@ -1,0 +1,50 @@
+apiVersion: config.mas.ibm.com/v1
+kind: MongoCfg
+metadata:
+  name: "maivs-mongo-system"
+  namespace: "mas-maivs-core"
+  labels:
+    mas.ibm.com/configScope: system
+    mas.ibm.com/instanceId: "maivs"
+spec:
+  displayName: "MongoDb connection details"
+  type: external
+  config:
+    hosts:
+      - host: "mas-mongo-ce-0.mas-mongo-ce-svc.mongoce.svc.cluster.local"
+        port: 27017
+      - host: "mas-mongo-ce-1.mas-mongo-ce-svc.mongoce.svc.cluster.local"
+        port: 27017
+      - host: "mas-mongo-ce-2.mas-mongo-ce-svc.mongoce.svc.cluster.local"
+        port: 27017
+    configDb: admin
+    authMechanism: DEFAULT
+    credentials:
+      secretName: mas-mongo-credentials
+  certificates:
+    - alias: ca
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIEBzCCAu+gAwIBAgIJAKQdkF/Zq84WMA0GCSqGSIb3DQEBBQUAMHgxCzAJBgNV
+        BAYTAlVTMQswCQYDVQQIDAJOWTERMA8GA1UEBwwITmV3IFlvcmsxFTATBgNVBAoM
+        DEV4YW1wbGUsIExMQzERMA8GA1UEAwwITW9uZ28gQ0ExHzAdBgkqhkiG9w0BCQEW
+        EHRlc3RAZXhhbXBsZS5jb20wHhcNMjIwNDExMjIwOTAzWhcNMzIwNDA4MjIwOTAz
+        WjCBmjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAk5ZMREwDwYDVQQHDAhOZXcgWW9y
+        azEVMBMGA1UECgwMRXhhbXBsZSwgTExDMTMwMQYDVQQDDCoqLm1hcy1tb25nby1j
+        ZS1zdmMubW9uZ28uc3ZjLmNsdXN0ZXIubG9jYWwxHzAdBgkqhkiG9w0BCQEWEHRl
+        c3RAZXhhbXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDT
+        j7lfAZY7M7GPd4lLf72lyVynGJr2Ty1QkjP0HPMXLZ9ZLahTXibqA9y+gyS96ktX
+        4HWT6ngGIy5v5QTfuH7mhQBz3x1yVOjnXsAZK65MJAjoiAALa5Vn47RRn8GX4265
+        r5K5DUeqPnZYvvs0nvYwuLjXZSQPU4KA9TiLKbMt4fi/OwFHwQev8uN7tIj/uh2S
+        2Ga2NCpEe1u2rt5uNXQCcTDLfzneP+sud1gB3qyNbbLFtpURjs5FAraWkUPYTUvW
+        7N74znX6mdRv1Sb22OQTlx6bTV/ho9QAR2zv+OAu3hQVHdgpIQVnPBd1U9PgjL5R
+        +ff3fkTYJpfG2vK0Si/7AgMBAAGjcTBvMAsGA1UdDwQEAwIF4DATBgNVHSUEDDAK
+        BggrBgEFBQcDATBLBgNVHREERDBCgioqLm1hcy1tb25nby1jZS1zdmMubW9uZ28u
+        c3ZjLmNsdXN0ZXIubG9jYWyCCTEyNy4wLjAuMYIJbG9jYWxob3N0MA0GCSqGSIb3
+        DQEBBQUAA4IBAQBW5SguSCAKBTAcNXBEMuUjNJ4rhxIgTXJ24QSV3m4k0bLGVZc4
+        Ra/axrtdN0sxpX3GDZF74yOBnEpCzbvmWyd8SCKGCNH5h4uyPfx3Yqnu3f5e6eIN
+        /2tr3UjFBrZixFZVmfL2N+v/GJtRK5+uc4hGF46DG8DSY2zAUlyqjXFBKgyzzlxm
+        408X2o6h77V7pG+bckO9yFHso02oyPwU1cSFG0Xbvdn2Da4stoJOny7x9HHm+Ytm
+        TvP8abw4c4EKIz7c8Hy3jS7TylqDH7jAZxdyFOS3yW2NXqIJ+xsTIwXvQDgt/o30
+        znjXwIYaPPc1NQfe12TpuKoxDMIQlLq6pwzf
+        -----END CERTIFICATE-----

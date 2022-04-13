@@ -10,10 +10,6 @@ oc apply -f namespace.yaml
 ```bash
 oc apply -f mas-bas-db-secrets.yaml
 ```
-###  Create a secret named "mtls-proxy-secret"
-```bash
-oc apply -f mtls-proxy-secrets.yaml
-```
 
 ### Installation
 

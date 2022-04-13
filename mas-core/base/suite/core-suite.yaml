@@ -1,0 +1,13 @@
+apiVersion: core.mas.ibm.com/v1
+kind: Suite
+metadata:
+  namespace: mas-maivs-core
+  name: maivs
+  labels:
+    mas.ibm.com/instanceId: maivs
+spec:
+  certManagerNamespace: cert-manager
+  domain: >-
+    mvi-dal13-b3c-8x32-18312db33a3427c911e9adf447e95207-0000.us-south.containers.appdomain.cloud
+  license:
+    accept: true
