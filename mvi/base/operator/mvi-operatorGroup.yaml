@@ -1,0 +1,11 @@
+
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: VisualInspectionApp.v1.apps.mas.ibm.com,VisualInspectionAppWorkspace.v1.apps.mas.ibm.com
+  name: ibm-visualinspection-operatorgroup
+  namespace: mas-maivs-visualinspection
+spec:
+  targetNamespaces:
+  - mas-maivs-visualinspection

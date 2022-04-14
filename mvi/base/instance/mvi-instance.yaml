@@ -1,0 +1,16 @@
+apiVersion: apps.mas.ibm.com/v1
+kind: VisualInspectionApp
+metadata:
+  labels:
+    mas.ibm.com/applicationId: visualinspection
+    mas.ibm.com/instanceId: maivs
+  name: maivs
+  namespace: mas-maivs-visualinspection
+spec:
+  bindings:
+    edge: application
+  settings:
+    storage:
+      size: 100Gi
+      storageClassName: ibmc-file-gold
+  size: 1
