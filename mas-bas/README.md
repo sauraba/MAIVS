@@ -26,15 +26,12 @@ kustomize build ${GITOPS_REPO}/mas-bas/base/instances/ | \
   kubectl apply -f -
 
 ```
-### wait for 2 hours for installation
 
-### Create mtls job ; wait 2 minutes for completion
+### Approve the plan for dependent serivce - amq streams
 
-```bash
-kustomize build ${GITOPS_REPO}/mas-bas/base/job/ | \
-  kubectl apply -f -
+### wait for 1 hour for installation
 
-```
+
 
 ### Generate API key
 ```bash

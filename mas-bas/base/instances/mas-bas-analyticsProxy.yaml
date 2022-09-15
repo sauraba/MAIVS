@@ -27,7 +27,6 @@ spec:
     zookeeper_storage_size: 5G
   env_type: lite
   proxy_settings:
-    http_proxy: https://iaps.ibm.com
-    https_proxy: https://iaps.ibm.com
+    http_proxy: http://169.62.254.242:3128
+    https_proxy: http://169.62.254.242:3128
     no_proxy: ''
-  

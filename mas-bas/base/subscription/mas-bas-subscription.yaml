@@ -9,6 +9,6 @@ spec:
   channel: alpha
   installPlanApproval: Manual
   name: behavior-analytics-services-operator-certified
-  source: bas-111
+  source: bas-116
   sourceNamespace: openshift-marketplace
-  startingCSV: behavior-analytics-services-operator.v1.1.1
+  startingCSV: behavior-analytics-services-operator.v1.1.6

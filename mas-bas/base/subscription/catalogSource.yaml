@@ -1,11 +1,11 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: CatalogSource
 metadata:
-  name: bas-111
+  name: bas-116
   namespace: openshift-marketplace
 spec:
-  displayName: BAS-Test-111
-  image: 'quay.io/growthstack/bas-operator:1.1.1-index-latest'
+  displayName: BAS-Test-116
+  image: 'quay.io/growthstack/bas-operator:1.1.6-index-latest'
   publisher: Red Hat Partner
   sourceType: grpc
   updateStrategy:
