@@ -11,4 +11,4 @@ spec:
   name: behavior-analytics-services-operator-certified
   source: bas-116
   sourceNamespace: openshift-marketplace
-  startingCSV: behavior-analytics-services-operator.v1.1.6
+  #startingCSV: behavior-analytics-services-operator-certified.v1.1.6
