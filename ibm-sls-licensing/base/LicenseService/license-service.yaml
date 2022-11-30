@@ -1,40 +1,30 @@
+
+---
 apiVersion: sls.ibm.com/v1
 kind: LicenseService
 metadata:
-  labels:
-    app.kubernetes.io/instance: ibm-sls
-    app.kubernetes.io/managed-by: olm
-    app.kubernetes.io/name: ibm-sls
   name: sls
   namespace: ibm-sls
 spec:
-  license:
-    accept: true
-  mongo:
-    authMechanism: DEFAULT
-    configDb: admin
-    nodes:
-    - host: mas-mongo-ce-0.mas-mongo-ce-svc.mongo.svc.cluster.local
-      port: 27017
-    - host: mas-mongo-ce-1.mas-mongo-ce-svc.mongo.svc.cluster.local
-      port: 27017
-    - host: mas-mongo-ce-2.mas-mongo-ce-svc.mongo.svc.cluster.local
-      port: 27017
-    secretName: sls-mongo-credentials
+  domain: $DOMAIN
   settings:
     auth:
       enforce: true
     compliance:
       enforce: true
-    reconciliation:
-      enabled: true
-      reconciliationPeriod: 1800
+    registry: cp.icr.io/cp
     registration:
       open: true
-    reporting:
-      maxDailyReports: 90
-      maxHourlyReports: 24
-      maxMonthlyReports: 12
-      reportGenerationPeriod: 3600
-      samplingPeriod: 900
-
+  license:
+    accept: true
+  mongo:
+    configDb: admin
+    nodes:
+      - host: "mas-mongo-ce-0.mas-mongo-ce-svc.$MONGO_NAMESPACE.svc.cluster.local"
+        port: 27017
+      - host: "mas-mongo-ce-1.mas-mongo-ce-svc.$MONGO_NAMESPACE.svc.cluster.local"
+        port: 27017
+      - host: "mas-mongo-ce-2.mas-mongo-ce-svc.$MONGO_NAMESPACE.svc.cluster.local"
+        port: 27017
+    retryWrites: true
+    secretName: sls-mongo-credentials
