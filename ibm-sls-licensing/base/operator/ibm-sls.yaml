@@ -1,14 +1,11 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  labels:
-    operators.coreos.com/ibm-sls.ibm-sls: ""
   name: ibm-sls
-  namespace: ibm-sls
+  namespace: "ibm-sls"
 spec:
-  channel: 3.x
-  installPlanApproval: Manual
+  channel: "3.x"
+  installPlanApproval: Automatic
   name: ibm-sls
   source: ibm-operator-catalog
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-sls.v3.3.1
