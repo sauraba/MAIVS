@@ -1,0 +1,74 @@
+
+---
+apiVersion: v1
+kind: Secret
+type: opaque
+metadata:
+  name: uds-apikey
+  namespace: "mas-$MAS_INSTANCE_ID-core"
+stringData:
+  api_key: $UDS_APIKEY
+---
+apiVersion: config.mas.ibm.com/v1
+kind: BasCfg
+metadata:
+  name: "$MAS_INSTANCE_ID-bas-system"
+  namespace: "mas-$MAS_INSTANCE_ID-core"
+  labels:
+    mas.ibm.com/configScope: system
+    mas.ibm.com/instanceId: "$MAS_INSTANCE_ID"
+spec:
+  displayName: UDS $MAS_INSTANCE_ID
+  config:
+    url: "https://$UDS_ENDPOINT"
+    contact:
+      email: "'john@email.com'"
+      firstName: "john"
+      lastName: "winter"
+    credentials:
+      secretName: uds-apikey
+  certificates:
+    - alias: part1
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIDczCCAlugAwIBAgIIedyQsSE8MTUwDQYJKoZIhvcNAQELBQAwJjEkMCIGA1UE
+        AwwbaW5ncmVzcy1vcGVyYXRvckAxNjUxNDI5NjAxMB4XDTIyMDUwMTE4MjkwMFoX
+        DTI0MDQzMDE4MjkwMVowKTEnMCUGA1UEAwweKi5hcHBzLmNsdXN0ZXIxLmlibW1h
+        c2RvY3MuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2OmLnXyM
+        3v+CiHiDpA1LqlVwV88sK+KRP8R6r2V2dqg1xsrXZjX3mtoJfI+BBjmxNDe5wvMQ
+        GJ1HSp3l03Ncs+VMEyv/kKbZKkWi1BVeyr6WH+8CIM16poHpbuY7iu6dSUAuw8rO
+        RJK2C0nmPIWGdkNa8p2lHdIhIT4/uYlM/vh/fEB5xVl+KxY+wYS19ChJhx9N3ADp
+        wPi6rl1/hNicG3SZFtgkJ91Dt2odN3AGiPDYUS+RWzp/BNdowdC6EniSo0xJQpiR
+        NrIjx7N4yKYlaHqEQuLA9x/QK/B2lG/0kHwe5WGr7rfNL5YjKSwr+9DNV/baCGFz
+        xjljYnn09ntMQQIDAQABo4GhMIGeMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAK
+        BggrBgEFBQcDATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBSVLyLHMhJHSCxKMfaP
+        kdP/uILaTjAfBgNVHSMEGDAWgBSnxxhPqgjoXK3L9jXjqbsVrlcY8DApBgNVHREE
+        IjAggh4qLmFwcHMuY2x1c3RlcjEuaWJtbWFzZG9jcy5jb20wDQYJKoZIhvcNAQEL
+        BQADggEBAHkGtYWVdy2+J+NUl3/UVZVmghR4WZtI1VXkyGK/Olc/j/yrqZKaXk1U
+        tmwp8+V02fRJIigEpn++a9rVThLZAC2pZPgzRma9nRz7fEYSP646BfrBVTFTEHkr
+        lDb9WnAg54eICR+RaptKiTzgsDpG7WqdozZ4dHXd/j0FtuJjM5DXQUekbOPfL5KL
+        U/BYeLOijYQuo8T3YaCkpoZ9AbNNm6/fkXyR6xT8/TUqcCGWfrBnP2kzohsyigw1
+        7bvCFZ+rJAFqH7xpZ3fdT77jQ81wu2wOwdvoLSSH9G0ORf2TrP+3ioQ+ZBtW0eRI
+        4NC9L+NobXEu9nWlHbjQerKTWFp1Cug=
+        -----END CERTIFICATE-----
+    - alias: part2
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIDDDCCAfSgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtpbmdy
+        ZXNzLW9wZXJhdG9yQDE2NTE0Mjk2MDEwHhcNMjIwNTAxMTgyNjQwWhcNMjQwNDMw
+        MTgyNjQxWjAmMSQwIgYDVQQDDBtpbmdyZXNzLW9wZXJhdG9yQDE2NTE0Mjk2MDEw
+        ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCmnS7/xlMzBM/mPyuGTtzP
+        fIMr5A9w8RpkVFeiUd1n6d+33v+/MR6k6dXLyoSVYp6AP983vSYPO/uk4roZcClF
+        JAAIJTvGXSpHaynipFoABV94pL7mb0J1jpUwNJ0wmghftSBl7fJjc8dSij/KGeQM
+        byrxy1Pq4K/3fgA2n/J+4h2Ke6weFYHzQbHy81nfiGNe3+/i6qEVGWRjqZO1xYnr
+        yWljYkDxcq4wo2ujKEcyCt7VYJLxjOHFhzf8bTua0+krsyz+nsSJxgmOJjhUzFjL
+        E76/zIGxsXT2o4n+FZXiz+SvGS5fLZ7fsEozNvghDeSAOsUmMXFmrRDRm0j01MJF
+        AgMBAAGjRTBDMA4GA1UdDwEB/wQEAwICpDASBgNVHRMBAf8ECDAGAQH/AgEAMB0G
+        A1UdDgQWBBSnxxhPqgjoXK3L9jXjqbsVrlcY8DANBgkqhkiG9w0BAQsFAAOCAQEA
+        M73BEtIiY8QyArmIG0/9MpJOTNWaBK6T639ATQClqmi5eGo2yQ7gfhq99xOMfpQI
+        9J/s1BV8fr76OMbmXTL4gY2SESaUjnjrm5io7dIy/m6Kzdhxj+IfHtl4T9QQDZA3
+        u+Jt2R+5A0QP5Ze9h1rXjRZbE4tPuEkamzYE4/wrJVMAIVrvK2Myf3aUXhc5D7bh
+        lZs9Z9D0/oEhpRQEdhVKErbb4DmXBhD9OH0ZVYv/c6YUfXcKMg3gHEep0IpoatZj
+        pbmbXKvaOYHXlP/Kx+IQLPzo4nxKLQJYo7ILA1R/MKXkbFFOcJ147fs6FAxyWd1T
+        wPYlclIBhIplOT03CMnQZw==
+        -----END CERTIFICATE-----

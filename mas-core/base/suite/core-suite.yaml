@@ -7,7 +7,7 @@ metadata:
   labels: 
     mas.ibm.com/instanceId: "maivs" 
 spec: 
-  certManagerNamespace: "ibm-common-services" 
+  certManagerNamespace: "cert-manager"
   domain: "maivs.ocp411-18312db33a3427c911e9adf447e95207-0000.us-south.containers.appdomain.cloud" 
   license: 
     accept: true 
