@@ -2,6 +2,7 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
+  - ./customscc.yaml
   - ./clusterrole.yaml
   - ./clusterrole_binding.yaml
-  - ./customscc.yaml
+
