@@ -40,3 +40,5 @@ subjects:
   namespace: ibm-software-central
 roleRef:
   kind: ClusterRole
+  name: cluster-monitoring-view
+  apiGroup: rbac.authorization.k8s.io
