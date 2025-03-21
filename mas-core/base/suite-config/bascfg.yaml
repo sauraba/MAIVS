@@ -7,8 +7,8 @@ metadata:
   namespace: "mas-{{ mas_instance_id }}-core"
 stringData:
   api_key:  <<dro_api_key>>
-  #fetch API key using this command:
-  oc get secret $(oc get secret  -n redhat-marketplace| grep  ibm-data-reporter-operator-api-token* | cut -d ' ' -f 1 | head -n 1) -n redhat-marketplace -o jsonpath='{.data.token}'
+  # fetch API key using  command:
+  # oc get secret $(oc get secret  -n redhat-marketplace| grep  ibm-data-reporter-operator-api-token* | cut -d ' ' -f 1 | head -n 1) -n redhat-marketplace -o jsonpath='{.data.token}'
 
   ---
 apiVersion: config.mas.ibm.com/v1
@@ -19,3 +19,12 @@ metadata:
   labels:
     mas.ibm.com/configScope: system
     mas.ibm.com/instanceId: "{{ mas_instance_id }}"
+  config:
+    contact:
+      email: <email>
+      firstName: <>
+      lastName: <>
+    credentials:
+      secretName: dro-apikey
+    url: "https://<host> #fetch URL host using command:   oc get routes ibm-data-reporter -n redhat-marketplace  -o jsonpath='{.spec.host}'
+  displayName: DRO {{ mas_instance_id }}
