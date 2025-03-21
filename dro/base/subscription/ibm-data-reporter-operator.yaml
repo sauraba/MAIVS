@@ -1,0 +1,14 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/name: dro
+    operators.coreos.com/ibm-data-reporter-operator.redhat-marketplace: ''
+  name: ibm-data-reporter-operator
+  namespace: redhat-marketplace
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: ibm-data-reporter-operator
+  source: certified-operators
+  sourceNamespace: openshift-marketplace

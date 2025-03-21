@@ -1,0 +1,11 @@
+apiVersion: marketplace.redhat.com/v1alpha1
+kind: MarketplaceConfig
+metadata:
+    name: marketplaceconfig
+    namespace: redhat-marketplace
+spec:
+    installIBMCatalogSource: false
+    isDisconnected: false
+    license:
+        accept: true
+~                           
