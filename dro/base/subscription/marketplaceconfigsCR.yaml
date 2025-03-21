@@ -7,5 +7,4 @@ spec:
     installIBMCatalogSource: false
     isDisconnected: false
     license:
-        accept: true
-~                           
+      accept: true               
