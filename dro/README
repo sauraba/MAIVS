@@ -21,5 +21,8 @@
 
 #9. Create role binding CR using /dro/base/subscription/role_binding.yaml
 
-#10. Wait for the rhm-data-service and  ibm-data-reporter-operator-controller-manager to be ready before creating bascfg.yaml
+#10. Check for the rhm-data-service and  ibm-data-reporter-operator-controller-manager to be ready before creating bascfg.yaml
+  Commands to check:
+    1) oc get statefulset -n redhat-marketplace (confirm: READY 3/3)
+    2) oc get deployment -n redhat-marketplace (confirm:  READY 1/1)
 
